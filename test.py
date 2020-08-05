@@ -21,7 +21,7 @@ def create_resource():
     emp = {
         'eno':500,
         'ename':'Harish',
-        'esal':10030,
+        'esal':4000,
         'eaddr':'Maysore'
     }
     resp = requests.post(URL+ENDPOINT, data = json.dumps(emp))
@@ -29,4 +29,30 @@ def create_resource():
     print(resp.status_code)
     print(resp.json())
 
-# create_resource()
+create_resource()
+
+def update_resource(id):
+    emp = {
+        'id':id,
+        'ename':'Sunny',
+        'eno':400,
+        'esal':45000
+    }
+
+    resp = requests.put(URL+ENDPOINT, data = json.dumps(emp))
+    print(resp.status_code)
+    print(resp.json())
+
+# update_resource(1)
+
+def delete_resource(id):
+
+    emp = {
+        'id':id
+    }
+
+    resp = requests.delete(URL+ENDPOINT, data=json.dumps(emp))
+    print(resp.status_code)
+    print(resp.json())
+
+# delete_resource(9)
